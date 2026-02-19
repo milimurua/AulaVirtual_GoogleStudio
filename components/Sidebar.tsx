@@ -8,39 +8,39 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard Principal', icon: '🏠' },
-    { id: 'curriculum', label: 'Cronograma y Módulos', icon: '📚' },
-    { id: 'resources', label: 'Banco de Recursos', icon: '📂' },
-    { id: 'lab', label: 'Laboratorio de Práctica', icon: '🧪' },
-    { id: 'project', label: 'Proyecto Integrador', icon: '🏆' },
-    { id: 'security', label: 'Seguridad y Privacidad', icon: '🛡️' }
+    { id: 'dashboard', label: 'Dashboard', icon: '🏠' },
+    { id: 'study', label: 'Material de Estudio', icon: '📚' },
+    { id: 'practice', label: 'Práctica', icon: '🎯' },
+    { id: 'lab', label: 'Laboratorio', icon: '🧪' },
+    { id: 'quiz', label: 'Quiz', icon: '📝' },
+    { id: 'security', label: 'Seguridad', icon: '🛡️' }
   ];
 
   return (
-    <div className="w-64 bg-slate-900 text-white min-h-screen p-6 flex flex-col fixed left-0 top-0">
-      <div className="mb-10">
-        <h1 className="text-2xl font-bold text-blue-400">ACOVI AI</h1>
-        <p className="text-xs text-slate-400">Campus Virtual de Innovación</p>
+    <div className="w-64 bg-slate-900 text-white min-h-screen p-6 flex flex-col fixed left-0 top-0 z-50 shadow-xl">
+      <div className="mb-10 px-2">
+        <h1 className="text-2xl font-bold text-blue-400 tracking-tighter">ACOVI IA</h1>
+        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Capacitación Corporativa</p>
       </div>
       <nav className="flex-1 space-y-2">
         {menuItems.map((item) => (
           <button
             key={item.id}
             onClick={() => setActiveTab(item.id)}
-            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
+            className={`w-full text-left px-4 py-3 rounded-2xl transition-all flex items-center gap-3 ${
               activeTab === item.id 
-                ? 'bg-blue-600 text-white shadow-lg' 
-                : 'hover:bg-slate-800 text-slate-300'
+                ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/40' 
+                : 'hover:bg-slate-800 text-slate-400'
             }`}
           >
-            <span>{item.icon}</span>
-            <span className="font-medium">{item.label}</span>
+            <span className="text-xl">{item.icon}</span>
+            <span className="font-semibold text-sm">{item.label}</span>
           </button>
         ))}
       </nav>
       <div className="pt-6 border-t border-slate-800 mt-auto">
-        <div className="bg-slate-800 p-4 rounded-xl text-xs text-slate-400">
-          Powered by <strong>Google Cloud</strong>
+        <div className="bg-slate-800/50 p-4 rounded-2xl text-[9px] text-slate-500 text-center font-bold tracking-widest uppercase">
+          Google AI Studio Training
         </div>
       </div>
     </div>

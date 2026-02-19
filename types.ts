@@ -1,21 +1,36 @@
 
 export type Area = 'Administración' | 'Comunicación' | 'Gerencia' | 'Servicios';
 
-export interface Module {
+export interface StudyMaterial {
   id: string;
   title: string;
-  week: number;
-  day: string;
-  topic: string;
-  theory: string[];
-  demo: string[];
-  practice: Record<Area, string>;
-  advancedPractice: string;
-  rubric: string[];
+  description: string;
+  topics: string[];
+  links: { title: string; url: string }[];
 }
 
-export interface Resource {
+export interface PracticeModule {
+  id: string;
   title: string;
-  type: 'doc' | 'pdf' | 'sheet' | 'audio';
-  description: string;
+  objective: string;
+  commonExercise: string;
+  complementaryDocs: { title: string; description: string }[];
+}
+
+export interface LabExercise {
+  area: Area;
+  exercises: { title: string; task: string }[];
+}
+
+export interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}
+
+export interface Quiz {
+  id: string;
+  title: string;
+  questions?: QuizQuestion[];
+  externalUrl?: string;
 }
